@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Highlighter pen body -->
+  <path d="M15.5 4.5l4 4-9.5 9.5-5 1 1-5z" fill="rgba(255,235,59,0.3)" stroke="currentColor"/>
+  <!-- Pen tip -->
+  <path d="M6 15l-1.5 4.5L9 18" stroke="currentColor"/>
+  <!-- Highlight mark -->
+  <line x1="14" y1="6" x2="18" y2="10" stroke="currentColor"/>
+  <!-- Decorative highlight streak -->
+  <path d="M3 21h18" stroke="currentColor" stroke-width="2" opacity="0.4"/>
+</svg>

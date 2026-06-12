@@ -1,0 +1,116 @@
+{
+  "name": "ms-code-highlighter",
+  "displayName": "Snippet Highlighter",
+  "description": "Highlight code with colors like a real highlighter pen — yellow, green, blue, pink, orange, red. Persistent highlights with a toolbar sidebar, eraser, and keyboard shortcuts.",
+  "version": "1.1.0",
+  "publisher": "mihirshah07",
+  "icon": "media/icon-marketplace.png",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MihirShah07/code-highlighter"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other",
+    "Visualization"
+  ],
+  "keywords": [
+    "highlight",
+    "highlighter",
+    "marker",
+    "color",
+    "annotation",
+    "code review"
+  ],
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "code-highlighter.addHighlight",
+        "title": "Highlight / Erase Selection",
+        "category": "Code Highlighter",
+        "icon": "$(paintcan)"
+      },
+      {
+        "command": "code-highlighter.removeHighlight",
+        "title": "Remove Highlight at Cursor",
+        "category": "Code Highlighter",
+        "icon": "$(close)"
+      },
+      {
+        "command": "code-highlighter.clearFileHighlights",
+        "title": "Clear All Highlights in File",
+        "category": "Code Highlighter",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "code-highlighter.clearAllHighlights",
+        "title": "Clear All Highlights in Workspace",
+        "category": "Code Highlighter",
+        "icon": "$(trash)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "code-highlighter-container",
+          "title": "Highlights",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "code-highlighter-container": [
+        {
+          "type": "webview",
+          "id": "code-highlighter.sidebar",
+          "name": "Highlights",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "command": "code-highlighter.addHighlight",
+          "when": "editorHasSelection",
+          "group": "1_modification@100"
+        },
+        {
+          "command": "code-highlighter.removeHighlight",
+          "group": "1_modification@101"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "code-highlighter.addHighlight",
+        "key": "ctrl+alt+h",
+        "mac": "cmd+alt+h",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  }
+}
